@@ -2,8 +2,6 @@ package com.elevance;
 
 import com.elevance.enums.Drink;
 import com.elevance.enums.Ingredient;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +11,7 @@ import static com.elevance.enums.Drink.*;
 import static com.elevance.enums.Ingredient.*;
 
 @SpringBootTest
-class BraistamaticApplicationTests {
+class BaristamaticApplicationTests {
 
 	private Drink coffee;
 	@BeforeEach
