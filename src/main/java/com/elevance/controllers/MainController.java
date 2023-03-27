@@ -32,7 +32,7 @@ public class MainController {
 	@GetMapping("/dispense/{drinkId}")
 	public String dispense(@PathVariable("drinkId") int drinkId) {
 		Drink drink = Drink.dispense(drinkId);
-		return "Dispensing " + drink.name + "...";
+		return "Dispensed " + drink.name;
 	}
 
 	@GetMapping("/menu")

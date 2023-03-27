@@ -10,21 +10,21 @@ import static com.elevance.enums.Ingredient.*;
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum Drink {
     Coffee(1, "Coffee", new Recipe[]{new Recipe(COFFEE, 3),
-                                                new Recipe(SUGAR),
-                                                new Recipe(CREAM)}),
+                                                new Recipe(SUGAR, 1),
+                                                new Recipe(CREAM, 1)}),
     DecafCoffee(2, "Decaf Coffee", new Recipe[]{new Recipe(DECAF_COFFEE, 3),
-                                                         new Recipe(SUGAR),
-                                                         new Recipe(CREAM)}),
+                                                         new Recipe(SUGAR, 1),
+                                                         new Recipe(CREAM, 1)}),
     CaffeLatte(3, "Caffe Latte",  new Recipe[]{new Recipe(ESPRESSO, 2),
-                                                        new Recipe(STEAMED_MILK)}),
+                                                        new Recipe(STEAMED_MILK, 1)}),
     CaffeAmericano(4, "Caffe Americano", new Recipe[]{new Recipe(ESPRESSO, 3)}),
-    CaffeMocha(5, "Caffe Mocha", new Recipe[]{new Recipe(ESPRESSO),
-                                                        new Recipe(COCOA),
-                                                        new Recipe(STEAMED_MILK),
-                                                        new Recipe(WHIPPED_CREAM)}),
+    CaffeMocha(5, "Caffe Mocha", new Recipe[]{new Recipe(ESPRESSO, 1),
+                                                        new Recipe(COCOA, 1),
+                                                        new Recipe(STEAMED_MILK, 1),
+                                                        new Recipe(WHIPPED_CREAM, 1)}),
     Cappuccino(6, "Cappuccino", new Recipe[]{new Recipe(ESPRESSO, 2),
-                                                    new Recipe(STEAMED_MILK),
-                                                    new Recipe(FOAMED_MILK)});
+                                                    new Recipe(STEAMED_MILK, 1),
+                                                    new Recipe(FOAMED_MILK, 1)});
 
     public final int id;
     public final String name;
@@ -69,10 +69,7 @@ public enum Drink {
             this.ingredient = ingredient;
             this.units      = units;
         }
-        Recipe(Ingredient ingredient){
-            this.ingredient = ingredient;
-            this.units      = 1;
-        }
+
 
         Double getCost(){
             return ingredient.getUnitCost() * units;

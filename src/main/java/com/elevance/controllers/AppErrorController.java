@@ -21,15 +21,12 @@ public class AppErrorController implements ErrorController {
     @ResponseBody
     public String handleError(HttpServletRequest request) {
         ServletWebRequest servletWebRequest = new ServletWebRequest(request);
-        ErrorAttributeOptions options = ErrorAttributeOptions.of(ErrorAttributeOptions.Include.MESSAGE, ErrorAttributeOptions.Include.STACK_TRACE, ErrorAttributeOptions.Include.EXCEPTION);
+        ErrorAttributeOptions options = ErrorAttributeOptions.of(ErrorAttributeOptions.Include.MESSAGE,
+                ErrorAttributeOptions.Include.STACK_TRACE, ErrorAttributeOptions.Include.EXCEPTION);
 
 
         Map<String, Object> errorAttributes = this.errorAttributes.getErrorAttributes(servletWebRequest, options);
-        /*Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
-        Exception exception = (Exception) request.getAttribute("javax.servlet.error.exception");
-        return String.format("<html><body><h2>Error Page</h2><div>Status code: <b>%s</b></div>"
-                        + "<div>Exception Message: <b>%s</b></div><body></html>",
-                statusCode, exception==null? "N/A": exception.getMessage());*/
+
         final StringBuilder errorDetails = new StringBuilder();
         errorAttributes.forEach((attribute, value) -> {
             errorDetails.append("<tr><td>")
