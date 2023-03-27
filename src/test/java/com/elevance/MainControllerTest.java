@@ -90,7 +90,7 @@ public class MainControllerTest {
    @Test
    public void testCoffeeDispenser() throws Exception {
       this.mockMvc.perform(get("/dispense/1")).andDo(print()).andExpect(status().isOk())
-              .andExpect(content().string(containsString("Dispensing Coffee...")));
+              .andExpect(content().string(containsString("Coffee dispensed.")));
 
       Assertions.assertEquals(COFFEE.getCurrentQuantity(), 7);
 
